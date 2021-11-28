@@ -1,0 +1,41 @@
+services:
+    exchange.sample_ftp:
+        class: iikoExchangeBundle\Exchange\Exchange
+        arguments: [ "SAMPLE_FTP" ]
+        tags:
+            - { name: "exchange" }
+        calls:
+            - [ setExtractor, [ "@exchange.connection.iiko.olap" ] ]
+            - [ setLoader, [ "@exchange.connection.sftp" ] ]
+            - [ setEngines, [ [ "@exchange.sample_ftp.engine" ] ] ]
+            - [ setSchedules, [ [ "@exchange.schedule.cron" ] ] ]
+
+    exchange.sample_ftp.engine:
+        class: iikoExchangeBundle\Engine\ExchangeEngine
+        arguments: [ 'SAMPLE_FTP_ENGINE' ]
+        calls:
+            - [ setRequests, [ [ '@exchange.sample_ftp.request.sales' ] ] ]
+            - [ setFormatter, [ '@exchange.sample_ftp.formatter' ] ]
+            - [ setTransformer, [ '@exchange.sample_ftp.transformer' ] ]
+
+    exchange.sample_ftp.mapping.department:
+        class: ExchangeExampleFtpBundle\Mapping\DepartmentMapping
+
+    exchange.sample_ftp.mapping.payment_type:
+        class: ExchangeExampleFtpBundle\Mapping\PaymentTypeMapping
+
+    exchange.sample_ftp.formatter:
+        class: ExchangeExampleFtpBundle\Formatter\SimpleFormatter
+        arguments: [ 'exchange.sample_ftp_FORMATTER' ]
+        calls:
+            - [ addMapping, [ '@exchange.sample_ftp.mapping.department' ] ]
+    exchange.sample_ftp.transformer:
+        class: ExchangeExampleFtpBundle\Transformer\Transformer
+        arguments: [ 'exchange.sample_ftp_TRANSFORMER' ]
+        calls:
+            - [ addMapping, [ '@exchange.sample_ftp.mapping.department' ] ]
+
+    exchange.sample_ftp.request.sales:
+        class: ExchangeExampleFtpBundle\Request\SalesRequest
+        calls:
+            - [ addMapping, [ '@exchange.sample_ftp.mapping.payment_type' ] ]

@@ -1,0 +1,14 @@
+parameters:
+
+imports:
+    - { resource: "@iikoExchangeBundle/Resource/config/services.yml" }
+
+services:
+    exchange.storage.config:
+        class: AppBundle\Service\ConfigStorage
+        calls:
+            - [ setRootDir, [ '%kernel.root_dir%' ] ]
+    exchange.storage.mapping:
+        class: AppBundle\Service\MappingStorage
+        calls:
+            - [ setRootDir, [ '%kernel.root_dir%' ] ]
