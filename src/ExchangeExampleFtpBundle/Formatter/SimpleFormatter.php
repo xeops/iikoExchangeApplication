@@ -42,7 +42,7 @@ class SimpleFormatter extends Formatter implements WithMappingExtensionInterface
 		$fileName = strtr("%CONFIG_FILE_PREFIX%_%NavStoreCode%_%YYYYMMDD%_%Timestamp%.csv", [
 			"%CONFIG_FILE_PREFIX%" => $this->getConfigValue(self::CONFIG_FILE_PREFIX),
 			"%NavStoreCode%" => $navisionStoreCode,
-			"%YYYYMMDD%" => $this->getPeriod()->getStartDate()->format('Ymd'),
+			"%YYYYMMDD%" => $this->getPeriod()->getDateFrom()->format('Ymd'),
 			"%Timestamp%" => (new \DateTime())->getTimestamp()
 		]);
 

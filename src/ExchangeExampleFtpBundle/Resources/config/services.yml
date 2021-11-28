@@ -37,5 +37,6 @@ services:
 
     exchange.sample_ftp.request.sales:
         class: ExchangeExampleFtpBundle\Request\SalesRequest
+        arguments: [ "SAMPLE_FTP.REQUEST.SALES" ]
         calls:
             - [ addMapping, [ '@exchange.sample_ftp.mapping.payment_type' ] ]

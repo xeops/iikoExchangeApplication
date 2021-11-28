@@ -5,18 +5,15 @@ namespace ExchangeExampleFtpBundle\Transformer;
 
 
 use ExchangeExampleFtpBundle\Mapping\DepartmentMapping;
-
 use ExchangeExampleFtpBundle\Request\SalesRequest;
-use IikoApiBundle\Reports\Olap\Version52\Delco\GroupFields;
-use IikoApiBundle\Reports\Olap\Version52\Sales\AggregateFields;
 use iikoExchangeBundle\Configuration\ConfigType\ConfigItemBoolean;
-use iikoExchangeBundle\Configuration\ConfigType\ConfigItemSelect;
 use iikoExchangeBundle\Contract\Extensions\WithMappingExtensionInterface;
 use iikoExchangeBundle\Contract\Extensions\WithRestaurantExtensionInterface;
 use iikoExchangeBundle\Engine\ExchangeEngine;
 use iikoExchangeBundle\Exchange\Exchange;
 use iikoExchangeBundle\ExtensionTrait\WithMappingExtensionTrait;
 use iikoExchangeBundle\ExtensionTrait\WithRestaurantExtensionTrait;
+use iikoExchangeBundle\Library\Request\iiko\Report\Sales\AggregateFields;
 use iikoExchangeBundle\Library\Transform\AbstractTransformer;
 
 class Transformer extends AbstractTransformer implements WithMappingExtensionInterface, WithRestaurantExtensionInterface

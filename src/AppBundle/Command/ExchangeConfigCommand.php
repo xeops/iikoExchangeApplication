@@ -61,9 +61,10 @@ class ExchangeConfigCommand extends ContainerAwareCommand
 		foreach ($mapping as $item)
 		{
 			$output->writeln($item->getCode());
+			$config['mapping'][$item->getCode()] = [];
 			while ($questionHelper->ask($input, $output, new Question($questionHelper->getQuestion('Do you want add a mapping row? (y/n): ', false))) === 'y')
 			{
-				$config['mapping'][$item->getCode()] = [
+				$config['mapping'][$item->getCode()][] = [
 					MappingInterface::FIELD_IDENTIFIERS => array_combine(
 						array_map(fn(ConfigItemInterface $configItem) => $configItem->getCode(), $item->exposeIdentifiers()),
 						array_map(fn(ConfigItemInterface $configItem) => $questionHelper->ask($input, $output, new Question($questionHelper->getQuestion("IDENTIFIER (" . $configItem->getCode() . ")", false))), $item->exposeIdentifiers()),

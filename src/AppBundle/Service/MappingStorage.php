@@ -5,6 +5,7 @@ namespace AppBundle\Service;
 use iikoExchangeBundle\Application\Restaurant;
 use iikoExchangeBundle\Contract\Exchange\ExchangeInterface;
 use iikoExchangeBundle\Contract\Service\ExchangeMappingStorageInterface;
+use iikoExchangeBundle\Exception\MappingNotFoundException;
 
 class MappingStorage implements ExchangeMappingStorageInterface
 {
@@ -52,8 +53,12 @@ class MappingStorage implements ExchangeMappingStorageInterface
 		{
 			throw new \Exception("Mapping file {$fileName} doesn't contain mapping");
 		}
+		if(!array_key_exists($mappingCode, $config))
+		{
+			throw new \Exception("Mapping not found in set");
+		}
 
-		return $config[$mappingCode] ?? [];
+		return $config[$mappingCode];
 	}
 
 	private function getConfigDir(): string

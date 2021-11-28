@@ -5,23 +5,20 @@ namespace ExchangeExampleFtpBundle\Request;
 
 
 use ExchangeExampleFtpBundle\Mapping\PaymentTypeMapping;
-use IikoApiBundle\Reports\Olap\Version52\Delco\FilterFields;
-use IikoApiBundle\Reports\Olap\Version52\Sales\AggregateFields;
+
 use iikoExchangeBundle\Contract\Extensions\WithMappingExtensionInterface;
 use iikoExchangeBundle\ExtensionTrait\WithMappingExtensionTrait;
+use iikoExchangeBundle\ExtensionTrait\WithPeriodExtensionTrait;
+use iikoExchangeBundle\Library\Request\iiko\Report\Sales\AggregateFields;
+use iikoExchangeBundle\Library\Request\iiko\Report\Sales\FilterFields;
+use iikoExchangeBundle\Library\Request\iikoOlapRequest;
 use iikoExchangeBundle\Library\Request\iikoSalesOlapDSRequest;
 
-class SalesRequest extends iikoSalesOlapDSRequest implements WithMappingExtensionInterface
+class SalesRequest extends iikoOlapRequest implements WithMappingExtensionInterface
 {
-
 	use WithMappingExtensionTrait;
 
 	const CODE = 'SALES';
-
-	public function __construct()
-	{
-		parent::__construct(self::CODE);
-	}
 
 	public function getType(): string
 	{
@@ -44,17 +41,12 @@ class SalesRequest extends iikoSalesOlapDSRequest implements WithMappingExtensio
 		];
 	}
 
-	public function processResponse(string $data)
-	{
-		return json_decode($data, true)['data'];
-	}
 
-
-	public function getFilters()
+	public function getFilters(): array
 	{
 		$paymentTypes = $this->getUniqMappingIdentifiers(PaymentTypeMapping::CODE, PaymentTypeMapping::ID_PAY_TYPE);
 
-		return parent::getFilters() +
+		return
 			[
 				FilterFields::PayTypesGUID => [
 					"filterType" => "IncludeValues",
