@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b9345c65553fbf097d19c384cbe7071",
+    "content-hash": "61aaaaf0feb0f16253258e4d1a5b92b5",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -2050,16 +2050,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.34",
+            "version": "2.0.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "98a6fe587f3481aea319eef7e656d02cfe1675ec"
+                "reference": "4e16cf3f5f927a7d3f5317820af795c0366c0420"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/98a6fe587f3481aea319eef7e656d02cfe1675ec",
-                "reference": "98a6fe587f3481aea319eef7e656d02cfe1675ec",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/4e16cf3f5f927a7d3f5317820af795c0366c0420",
+                "reference": "4e16cf3f5f927a7d3f5317820af795c0366c0420",
                 "shasum": ""
             },
             "require": {
@@ -2139,7 +2139,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/2.0.34"
+                "source": "https://github.com/phpseclib/phpseclib/tree/2.0.35"
             },
             "funding": [
                 {
@@ -2155,7 +2155,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-27T02:46:30+00:00"
+            "time": "2021-11-28T23:30:39+00:00"
         },
         {
             "name": "psr/cache",
@@ -3653,16 +3653,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.14.7",
+            "version": "v2.14.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "8e202327ee1ed863629de9b18a5ec70ac614d88f"
+                "reference": "06b450a2326aa879faa2061ff72fe1588b3ab043"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/8e202327ee1ed863629de9b18a5ec70ac614d88f",
-                "reference": "8e202327ee1ed863629de9b18a5ec70ac614d88f",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/06b450a2326aa879faa2061ff72fe1588b3ab043",
+                "reference": "06b450a2326aa879faa2061ff72fe1588b3ab043",
                 "shasum": ""
             },
             "require": {
@@ -3716,7 +3716,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v2.14.7"
+                "source": "https://github.com/twigphp/Twig/tree/v2.14.8"
             },
             "funding": [
                 {
@@ -3728,7 +3728,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-17T08:39:54+00:00"
+            "time": "2021-11-25T13:38:06+00:00"
         },
         {
             "name": "xeops/iiko-exchange",
@@ -3736,12 +3736,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/xeops/iikoExchange.git",
-                "reference": "bcaeadb2827ff61a25b807700de151ae8fe5cfbf"
+                "reference": "756168eadbf14ae1db691afd97955aa09ad89694"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xeops/iikoExchange/zipball/bcaeadb2827ff61a25b807700de151ae8fe5cfbf",
-                "reference": "bcaeadb2827ff61a25b807700de151ae8fe5cfbf",
+                "url": "https://api.github.com/repos/xeops/iikoExchange/zipball/756168eadbf14ae1db691afd97955aa09ad89694",
+                "reference": "756168eadbf14ae1db691afd97955aa09ad89694",
                 "shasum": ""
             },
             "require": {
@@ -3779,7 +3779,7 @@
                 "issues": "https://github.com/xeops/iikoExchange/issues",
                 "source": "https://github.com/xeops/iikoExchange/tree/develop"
             },
-            "time": "2021-11-23T07:16:12+00:00"
+            "time": "2021-11-29T13:42:42+00:00"
         }
     ],
     "packages-dev": [
@@ -3930,7 +3930,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "platform-overrides": {

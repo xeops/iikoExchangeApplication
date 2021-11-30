@@ -5,7 +5,7 @@ services:
         tags:
             - { name: "exchange" }
         calls:
-            - [ setExtractor, [ "@exchange.connection.iiko.olap" ] ]
+            - [ setExtractor, [ "@exchange.connection.iiko" ] ]
             - [ setLoader, [ "@exchange.connection.sftp" ] ]
             - [ setEngines, [ [ "@exchange.sample_ftp.engine" ] ] ]
             - [ setSchedules, [ [ "@exchange.schedule.cron" ] ] ]
