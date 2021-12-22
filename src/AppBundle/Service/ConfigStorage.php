@@ -60,7 +60,29 @@ class ConfigStorage implements ExchangeConfigStorageInterface
 
 	public function appendConfiguration(ExchangeInterface $exchange, ExchangeNodeInterface $exchangeNode, string $code, $value, ?Restaurant $restaurant = null)
 	{
-		throw new \Exception('Method not implemented');
+		if (!@dir($this->getConfigDir()) && @mkdir($this->getConfigDir()) === false)
+		{
+			throw new \Exception('Cant create directory ' . $this->getConfigDir());
+		}
+		if (!file_exists($this->getConfigDir() . DIRECTORY_SEPARATOR . $this->getFileName($exchange)))
+		{
+			$fileContent = [];
+		}
+		else
+		{
+			$fileContent = json_decode(file_get_contents($this->getConfigDir() . DIRECTORY_SEPARATOR . $this->getFileName($exchange)), true);
+		}
+		if (!isset($fileContent['config']))
+		{
+			$fileContent['config'] = [];
+		}
+		if (!isset($fileContent['config'][$exchangeNode->getCode()]))
+		{
+			$fileContent['config'][$exchangeNode->getCode()] = [];
+		}
+		$fileContent['config'][$exchangeNode->getCode()][$code] = $value;
+
+		file_put_contents($this->getConfigDir() . DIRECTORY_SEPARATOR . $this->getFileName($exchange), json_encode($fileContent));
 	}
 
 	private function getConfigDir(): string
