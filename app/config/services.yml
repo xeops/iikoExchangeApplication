@@ -12,3 +12,8 @@ services:
         class: AppBundle\Service\MappingStorage
         calls:
             - [ setRootDir, [ '%kernel.root_dir%' ] ]
+
+    exchange.storage.session:
+        class: AppBundle\Service\SessionStorage
+        calls:
+            - [ setRootDir, [ '%kernel.root_dir%' ] ]
