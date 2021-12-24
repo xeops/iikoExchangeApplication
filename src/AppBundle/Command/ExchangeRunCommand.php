@@ -37,7 +37,7 @@ class ExchangeRunCommand extends ContainerAwareCommand
 	 */
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$exchange = $this->getContainer()->get('exchange.directory')->getExchangeByCode($input->getArgument('exchange'));
+		$exchange = $this->getContainer()->get('exchange.directory')->get($input->getArgument('exchange'));
 		$exchange->setId($input->getOption('exchange-id'));
 
 		$params = new ExchangeParameters();

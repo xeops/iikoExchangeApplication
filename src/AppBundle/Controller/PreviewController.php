@@ -19,7 +19,7 @@ class PreviewController extends Controller
 	public function startExchangePreview(Request $request)
 	{
 
-		$exchange = $this->get('exchange.directory')->getExchangeByCode($request->query->get('exchangeCode'));
+		$exchange = $this->get('exchange.directory')->get($request->query->get('exchangeCode'));
 		$exchange->setId($request->query->getInt('exchangeId', 1));
 
 		if ($exchange->getPreviewTemplate() === null)

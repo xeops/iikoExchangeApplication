@@ -20,7 +20,7 @@ class OAuth2Controller extends Controller
 	 */
 	public function getOAuth2Uri(Request $request)
 	{
-		$exchangeSkeleton = $this->get('exchange.directory')->getExchangeByCode($request->query->get('exchangeCode'));
+		$exchangeSkeleton = $this->get('exchange.directory')->get($request->query->get('exchangeCode'));
 		$exchangeSkeleton->setId($request->query->getInt('exchangeId', 1));
 		/** @var ExchangeConfigStorageInterface $exchangeConfigStorage */
 		$exchangeConfigStorage = $this->get('exchange.storage.config');
@@ -54,7 +54,7 @@ class OAuth2Controller extends Controller
 	 */
 	public function redirectUri(Request $request, string $exchangeCode, int $exchangeId, string $type)
 	{
-		$exchangeSkeleton = $this->get('exchange.directory')->getExchangeByCode($exchangeCode);
+		$exchangeSkeleton = $this->get('exchange.directory')->get($exchangeCode);
 		$exchangeSkeleton->setId($exchangeId);
 
 		if ($request->query->has('error'))

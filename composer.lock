@@ -3736,12 +3736,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/xeops/iikoExchange.git",
-                "reference": "756168eadbf14ae1db691afd97955aa09ad89694"
+                "reference": "59b68208503788d2227b999b397dfb5e2f5bde2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xeops/iikoExchange/zipball/756168eadbf14ae1db691afd97955aa09ad89694",
-                "reference": "756168eadbf14ae1db691afd97955aa09ad89694",
+                "url": "https://api.github.com/repos/xeops/iikoExchange/zipball/59b68208503788d2227b999b397dfb5e2f5bde2f",
+                "reference": "59b68208503788d2227b999b397dfb5e2f5bde2f",
                 "shasum": ""
             },
             "require": {
@@ -3779,7 +3779,7 @@
                 "issues": "https://github.com/xeops/iikoExchange/issues",
                 "source": "https://github.com/xeops/iikoExchange/tree/develop"
             },
-            "time": "2021-11-29T13:42:42+00:00"
+            "time": "2021-12-24T09:26:37+00:00"
         }
     ],
     "packages-dev": [

@@ -36,7 +36,7 @@ class ExchangeConfigCommand extends ContainerAwareCommand
 		$directory = $this->getContainer()->get('exchange.directory');
 		$questionHelper = $this->getQuestionHelper();
 
-		$exchange = $directory->getExchangeByCode($input->getArgument('exchange-code'));
+		$exchange = $directory->get($input->getArgument('exchange-code'));
 		$exchange->setId($input->getArgument('exchange-id'));
 
 
