@@ -85,11 +85,6 @@ class OAuth2Controller extends Controller
 			return new JsonResponse($authData['error'] . ": " . ($authData['error_description'] ?? null));
 		}
 
-		foreach ($node->getAuthDataMapping() as $configCode => $valueCode)
-		{
-			$exchangeConfigStorage->appendConfiguration($exchangeSkeleton, $node, $configCode, $authData[$valueCode]);
-		}
-
 		return new JsonResponse('ALL OK! Close the window');
 	}
 
