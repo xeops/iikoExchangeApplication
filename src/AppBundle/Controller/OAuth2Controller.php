@@ -74,7 +74,7 @@ class OAuth2Controller extends Controller
 		$node->setConfigCollection($config);
 		try
 		{
-			$authData = $node->getAccessToken($code);
+			$node->accessToken($code);
 		}
 		catch (\Exception | \Throwable | ConfigNotFoundException $exception)
 		{
