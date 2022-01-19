@@ -48,7 +48,7 @@ class ExchangeRunCommand extends ContainerAwareCommand
 		}
 		if (WithRestaurantExtensionHelper::isNeedRestaurant($exchange))
 		{
-			$params->setRestaurant(new Restaurant($input->getOption('restaurant'), 'My restaurant'));
+			$params->setRestaurant(new Restaurant($input->getOption('restaurant'), 'My restaurant', new \DateTimeZone(date_default_timezone_get())));
 		}
 
 

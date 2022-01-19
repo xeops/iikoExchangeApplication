@@ -35,7 +35,7 @@ class PreviewController extends Controller
 		if ($request->query->has('restaurant'))
 		{
 
-			$params->setRestaurant(new Restaurant($request->query->getInt('restaurantId'), 'My restaurant'));
+			$params->setRestaurant(new Restaurant($request->query->getInt('restaurantId'), 'My restaurant', new \DateTimeZone(date_default_timezone_get())));
 		}
 
 		if ($this->get('exchange.manager')->startExchange($exchange, ScheduleInterface::TYPE_PREVIEW, $params) !== false)
