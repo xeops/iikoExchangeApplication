@@ -42,7 +42,7 @@ class PreviewController extends Controller
 		{
 			if ($this->get('exchange.storage.preview')->existData($exchange))
 			{
-				return $this->render($exchange->getPreviewTemplate(), $this->get('exchange.storage.preview')->getData($exchange));
+				return $this->render($exchange->getPreviewTemplate(), ['data' => $this->get('exchange.storage.preview')->getData($exchange)]);
 			}
 		}
 
