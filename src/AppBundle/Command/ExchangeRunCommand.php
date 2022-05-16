@@ -26,6 +26,7 @@ class ExchangeRunCommand extends ContainerAwareCommand
 			->setName('exchange:run')
 			->addArgument('exchange', InputArgument::REQUIRED, 'Pass an exchange code')
 			->addOption('restaurant', 'r', InputOption::VALUE_OPTIONAL, 'Restaurant ID (some int value)', 1)
+			->addOption('restaurants', 's', InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'Restaurant IDS (array of some int value)', [1])
 			->addOption('date-from', 'f', InputOption::VALUE_OPTIONAL, 'Start of the period', 'now')
 			->addOption('date-to', 't', InputOption::VALUE_OPTIONAL, 'End of the period', 'now')
 			->addOption('exchange-id', 'i', InputOption::VALUE_OPTIONAL, 'Exchange id', 1)
@@ -49,6 +50,13 @@ class ExchangeRunCommand extends ContainerAwareCommand
 		if (WithRestaurantExtensionHelper::isNeedRestaurant($exchange))
 		{
 			$params->setRestaurant(new Restaurant($input->getOption('restaurant'), 'My restaurant', new \DateTimeZone(date_default_timezone_get())));
+		}
+		if (WithRestaurantExtensionHelper::isNeedMultiRestaurant($exchange))
+		{
+			$params->setRestaurantCollection(
+				array_map(fn($id) => new Restaurant($id, "My restaurant#{$id}", new \DateTimeZone(date_default_timezone_get())),
+					$input->getOption('restaurants'))
+			);
 		}
 
 
